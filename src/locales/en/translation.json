@@ -1,0 +1,234 @@
+{
+  "welcome_message": "Welcome to our website!",
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "slogan": "Govt. Services"
+  },
+  "hero": {
+    "title": "Revolutionize <1>Your Business</1> with <2>AI Intelligence</2>",
+    "subtitle": "Transform your operations with cutting-edge artificial intelligence solutions designed for the future of business automation and growth.",
+    "cta": "Get Your Online Token Now",
+    "bubble": "lets get you connected!",
+    "main_heading": "Revolutionize Your Business with AI Intelligence"
+  },
+  "services": {
+    "title": "Our Comprehensive Services",
+    "subtitle": "Aladheed AlRashidiya provides a wide array of Goverment services tailored to meet your specific needs. Explore how we can assist you.",
+    "bubble": "Discover our services",
+    "close": "Close",
+    "items": [
+      {
+        "title": "Sharia\\nMarriage",
+        "description": "RAALC specializes in Shari'a marriage registration, providing personalized assistance in line with Islamic law. We ensure thorough documentation and legal compliance for a smooth registration process.",
+        "icon": "/images/martial.png"
+      },
+      {
+        "title": "Civil\\nMarriage",
+        "description": "RAALC simplifies civil marriage registration in Dubai, ensuring precise completion of all paperwork. Our experienced team guides you through the entire process, meeting all legal requirements.",
+        "icon": "/images/civil-marriage.png"
+      },
+      {
+        "title": "Inheritance",
+        "description": "RAALC provides comprehensive inheritance support for Muslims and non-Muslims. We assist with property transfers, will executions, and resolving disputes among heirs through legal channels.",
+        "icon": "/images/Inheritance.png"
+      },
+      {
+        "title": "Real Estate",
+        "description": "RAALC assists with property claims, including compensation for project cancellations or developer delays. We also support legal actions related to outstanding payments and other real estate matters.",
+        "icon": "/images/real-estate.png"
+      },
+      {
+        "title": "Notary Service",
+        "description": "Our notary services ensure the confidentiality of your sensitive documents. We authenticate affidavits, powers of attorney, wills, sponsorship letters, and more. Remote services are available, and client visits can be arranged when necessary.",
+        "icon": "/images/notary.png"
+      },
+      {
+        "title": "Marital Matters",
+        "description": "Facing marital issues? RAALC provides support in divorce cases, legal agreements, child custody, and contesting judgments. We assist with family guidance and acquiring nafaka during and after marriage.",
+        "icon": "/images/marriage.png"
+      },
+      {
+        "title": "Parentage",
+        "description": "Having trouble obtaining a birth certificate? Aladheed AlRashidiya guides you through the legal process, from initial submission to final court decisions, for both UAE Nationals and foreigners, including support for single mothers.",
+        "icon": "/images/parentage.png"
+      },
+      {
+        "title": "Commercial Service",
+        "description": "Aladheed AlRashidiya specializes in claims related to unpaid invoices or bounced cheques. We assist with claim registration, legal notices, and document archiving. We also help refute opposing claims and facilitate the execution of legal notices.",
+        "icon": "/images/commerical.png"
+      }
+    ]
+  },
+  "determination": {
+    "title": "Unique Needs of <1>People of Determination</1>",
+    "subtitle": "We provide highly specialized and adaptive services, leveraging technology to ensure every individual's unique requirements are met with precision and care.",
+    "features": [
+      {
+        "title": "Visual Support",
+        "description": "Enhanced digital accessibility and document readability."
+      },
+      {
+        "title": "Auditory Assistance",
+        "description": "Clear communication channels and assistive technologies."
+      },
+      {
+        "title": "Physical Accessibility",
+        "description": "Accessible office spaces and remote service options."
+      },
+      {
+        "title": "Cognitive Support",
+        "description": "Simplified processes and patient, clear explanations."
+      }
+    ],
+    "approach": {
+      "title": "Futuristic & Inclusive Approach",
+      "description": "Aladheed AlRashidiya is committed to a forward-thinking vision of govermental services. We integrate advanced AI tools and adaptive technologies to create a truly inclusive environment. Our goal is to dismantle barriers and provide seamless, empowering experiences for all People of Determination, ensuring their legal needs are addressed with the dignity and efficiency they deserve."
+    }
+  },
+  "raalc_now": {
+    "title": "RAALC Now <1>Submissions and Inquiries are</1><2/> Simplified with <3>Online Token</3>",
+    "items": [
+      {
+        "title": "RAALC... First Step",
+        "description": "Aladheed AlRashidiya runs the first Smart Judicial Service Center, authorized and licensed by Dubai Courts. Offers easy access with a futuristic and efficient approach, aligned with the vision of HH Sheikh Mohammed to enhance your experience. Our continuous efforts to make judicial procedures and processes seamless align with our goal to achieve 100% customer satisfaction.",
+        "list": [
+          "Paperless Service",
+          "Queue-less Experience",
+          "Online Token Facility"
+        ]
+      },
+      {
+        "title": "Trusted Partners",
+        "description": "Aladheed AlRashidiya is proud to be associated with Dubai Courts, providing authorized and licensed judicial services. Our partnership ensures that you receive official, reliable, and legally valid services for all your requirements.",
+        "list": [
+          "Official Partnership",
+          "Licensed Services",
+          "Legal Validity"
+        ]
+      },
+      {
+        "title": "Access & Efficiency",
+        "description": "Experience seamless access to judicial services with our state-of-the-art facilities. Our commitment to efficiency means faster processing times and enhanced service delivery for all your legal requirements.",
+        "list": [
+          "Quick Processing",
+          "Modern Facilities",
+          "Enhanced Services"
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What our customers say",
+    "view_in_arabic": "عرض باللغة العربية",
+    "view_in_english": "View in English",
+    "load_more": "Load More Reviews",
+    "read_more": "Read more",
+    "read_less": "Read less",
+    "verified_by_google": "Verified by Google",
+    "items": [
+      {
+        "name": "Ahmed K.",
+        "avatar": "AK",
+        "rating": 5,
+        "review": "Aladheed AlRashidiya's team was incredibly professional and efficient. They handled my case with utmost care and precision. Highly recommended!",
+        "verified": true
+      },
+      {
+        "name": "Fatima S.",
+        "avatar": "FS",
+        "rating": 5,
+        "review": "Excellent service! They made a complex legal process seem so simple. The online token system is a game changer.",
+        "verified": true
+      },
+      {
+        "name": "John D.",
+        "avatar": "JD",
+        "rating": 4,
+        "review": "Very knowledgeable and helpful. They guided me through every step. I appreciate their dedication.",
+        "verified": false
+      },
+      {
+        "name": "Aisha M.",
+        "avatar": "AM",
+        "rating": 5,
+        "review": "The best legal consultants in Dubai! Their expertise in Sharia marriage registration is unmatched.",
+        "verified": true
+      },
+      {
+        "name": "Raj P.",
+        "avatar": "RP",
+        "rating": 5,
+        "review": "Quick, responsive, and results-driven. Aladheed AlRashidiya exceeded my expectations. Thank you for your support!",
+        "verified": true
+      },
+      {
+        "name": "Noora H.",
+        "avatar": "NH",
+        "rating": 4,
+        "review": "A reliable partner for all legal matters. Their team is approachable and always ready to assist.",
+        "verified": false
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "info_title": "Contact Information",
+    "info_subtitle": "Reach out to us through any of the following channels. We're here to help!",
+    "phone": "04 342 5006<br/>600 572 252",
+    "email": "consult2@raalc.ae",
+    "address": "1st Floor – Bin Sougat Centre, Airport Road <br/> Al Rashidiya – Dubai",
+    "follow_us": "Follow Us",
+    "form_title": "Send Us a Message",
+    "form_name_label": "Full Name",
+    "form_name_placeholder": "Your Name",
+    "form_email_label": "Email Address",
+    "form_email_placeholder": "you@example.com",
+    "form_message_label": "Message",
+    "form_message_placeholder": "How can we help you?",
+    "form_submit": "Submit Request",
+    "toast_title": "Email Client Opened",
+    "toast_description": "Your message has been prepared in your default email client.",
+    "description_p1": "Aladheed AlRashidiya Government Services is your trusted partner for comprehensive legal and administrative solutions in Dubai. We specialize in providing efficient, professional services for both individuals and businesses, ensuring seamless interaction with government processes.",
+    "description_p2": "Our commitment to excellence and customer satisfaction makes us the preferred choice for those seeking reliable government service assistance. With years of experience and a dedicated team, we handle your requirements with utmost care and precision."
+  },
+  "location": {
+    "title": "Visit Our Office",
+    "description": "We're conveniently located in Dubai. Come visit us to discuss your legal needs in person.",
+    "company_name": "Aladheed AlRashidiya Legal Consultancy",
+    "address_line1": "Al Adheed Center, Al Rashidiya",
+    "address_line2": "Dubai, United Arab Emirates",
+    "get_directions": "Get Directions",
+    "map_marker_title": "Aladheed AlRashidiya Location",
+    "map_info_title": "Aladheed AlRashidiya Legal Consultancy",
+    "map_info_address": "Al Adheed Center, Al Rashidiya<br>Dubai, UAE",
+    "success_description": "We will get back to you shortly."
+  },
+  "scroll_to_top": {
+    "aria_label": "Scroll to top"
+  },
+  "notification": {
+    "close_aria_label": "Close notification",
+    "title": "GET SERVED ONLINE",
+    "subtitle": "The Best way to experience government services!",
+    "button_text": "GET Online token",
+    "enquiry": "For Enquiry: +971 4 342 5006",
+    "complaints": "For Complaints: +971 55 120 7555",
+    "working_hours_title": "Working Hours",
+    "working_hours_day1": "Mon–Thu: 8 am–7:30 pm",
+    "working_hours_day2": "Friday: 8 am–12 pm"
+  },
+  "footer": {
+    "quick_links": "Quick Links",
+    "home": "Home",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "copyright": "© {{year}} Raalc Technologies Inc. All rights reserved.",
+    "made_by": "Made by Raalc Govt. Services",
+    "description_p1": "Aladheed AlRashidiya Government Services is your trusted partner for comprehensive legal and administrative solutions in Dubai. We specialize in providing efficient, professional services for both individuals and businesses, ensuring seamless interaction with government processes.",
+    "description_p2": "Our commitment to excellence and customer satisfaction makes us the preferred choice for those seeking reliable government service assistance. With years of experience and a dedicated team, we handle your requirements with utmost care and precision."
+  }
+}

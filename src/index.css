@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&family=MuseoModerno:wght@100..900&family=Rubik+Glitch&family=Signika:wght@300..700&family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer base {
+      :root {
+        --background: 255 100% 100%; /* White */
+        --foreground: 208 7% 46%; /* Dark Gray for text */
+
+        --card: 255 100% 100%; 
+        --card-foreground: 208 7% 46%;
+
+        --popover: 255 100% 100%;
+        --popover-foreground: 208 7% 46%;
+
+        --primary: 204 64% 44%; /* #2980B9 */
+        --primary-foreground: 255 100% 100%; /* White */
+
+        --secondary: 358 28% 87%; /* #DFC9CA - Accent Grey */
+        --secondary-foreground: 208 7% 46%; /* Dark Gray */
+        
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --accent: 358 28% 87%; /* #DFC9CA */
+        --accent-foreground: 204 64% 44%; /* Primary Blue */
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 204 64% 70%; /* Lighter shade of primary blue for borders */
+        --input: 204 20% 90%; /* Light blue-grey for input backgrounds */
+        --ring: 204 64% 44%; /* Primary Blue for focus rings */
+
+        --radius: 0.5rem;
+      }
+
+      .dark {
+        /* Keeping .dark for shadcn compatibility, but applying light theme vars */
+        --background: 255 100% 100%; 
+        --foreground: 208 7% 46%; 
+
+        --card: 255 100% 100%; 
+        --card-foreground: 208 7% 46%;
+
+        --popover: 255 100% 100%;
+        --popover-foreground: 208 7% 46%;
+
+        --primary: 204 64% 44%; 
+        --primary-foreground: 255 100% 100%;
+
+        --secondary: 358 28% 87%; 
+        --secondary-foreground: 208 7% 46%;
+        
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --accent: 358 28% 87%;
+        --accent-foreground: 204 64% 44%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 100%;
+
+        --border: 204 64% 70%; 
+        --input: 204 20% 90%; 
+        --ring: 204 64% 44%;
+      }
+    }
+
+    @layer base {
+      * {
+        @apply border-border;
+      }
+      body {
+        @apply bg-background text-foreground;
+        scroll-behavior: smooth;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        @apply font-heading;
+      }
+
+      p, span, div, li, button, input, textarea, label, a {
+         @apply font-body;
+      }
+
+      .font-arabic {
+        font-family: 'Cairo', 'MuseoModerno', sans-serif;
+        /* Add better letter spacing and line height for Arabic text */
+        letter-spacing: 0;
+        line-height: 1.6;
+        font-weight: 600;
+        font-feature-settings: 'liga' 1, 'kern' 1;
+      }
+      
+      /* RTL classes for text content only */
+      .rtl-text {
+        direction: rtl;
+        text-align: right;
+      }
+      
+      .rtl-text-left {
+        direction: rtl;
+        text-align: left;
+      }
+      
+      /* Preserve animations and visual elements */
+      .preserve-layout {
+        direction: ltr !important;
+      }
+      
+      /* For navigation and text content that should be RTL */
+      .rtl-content {
+        direction: rtl;
+      }
+      
+      /* For animations, robots, and visual elements that should stay LTR */
+      .ltr-preserve {
+        direction: ltr !important;
+        text-align: left !important;
+      }
+      
+      .font-accent-text {
+        @apply font-accentText;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: hsl(var(--secondary)); /* Accent grey */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: hsl(var(--primary)); /* Primary blue */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: hsl(var(--primary) / 0.8);
+    }
+
+    .glassmorphism-card {
+      background: rgba(255, 255, 255, 0.6); /* Lighter background for bright theme */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid rgba(41, 128, 185, 0.3); /* Primary blue border with transparency */
+      box-shadow: 0 8px 32px rgba(41, 128, 185, 0.15); /* Softer shadow with blue tint */
+    }
+    
+    .gradient-text-blue {
+      @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-400 to-blue-300;
+    }
+
+    .aspect-w-16 { position: relative; padding-bottom: calc(9 / 16 * 100%); }
+    .aspect-h-9 > * { position: absolute; height: 100%; width: 100%; top: 0; right: 0; bottom: 0; left: 0; }
+
+    input, textarea {
+        @apply bg-input border-border text-foreground placeholder-muted-foreground;
+    }
+    input:focus, textarea:focus {
+        @apply ring-ring border-ring;
+    }
+
+    /* Tooltip styles */
+    .tooltip {
+      @apply invisible absolute z-10;
+    }
+    .has-tooltip:hover .tooltip {
+      @apply visible;
+    }
+
+    .futuristic-determination-bg {
+      background:
+        linear-gradient(135deg, hsla(var(--primary)/0.1) 25%, transparent 25%) -50px 0,
+        linear-gradient(225deg, hsla(var(--primary)/0.05) 25%, transparent 25%) -50px 0,
+        linear-gradient(315deg, hsla(var(--primary)/0.1) 25%, transparent 25%),
+        linear-gradient(45deg, hsla(var(--primary)/0.05) 25%, transparent 25%);
+      background-size: 100px 100px;
+      background-color: hsl(var(--background));
+    }
+
+    .determination-card {
+      background: hsla(var(--background) / 0.8);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid hsla(var(--primary) / 0.3);
+      box-shadow: 0 0 20px hsla(var(--primary) / 0.2);
+    }
+
+    /* Custom Navbar Styles */
+    .custom-navbar {
+      height: 6rem !important;
+    }
+    .custom-navbar-logo {
+      height: 5rem !important;
+      width: auto !important;
+    }
+    .custom-navbar-title,
+    .navbar-title {
+      font-size: 3rem !important;
+      font-family: 'MuseoModerno', sans-serif;
+    }
+    .custom-navbar-subtitle {
+      font-size: 1.5rem !important;
+    }
+    .custom-navbar-link {
+      font-size: 1.25rem !important;
+      padding: 1rem 2rem !important;
+    }
+
+    @keyframes blob-move-1 {
+      0%, 100% { transform: scale(1) translate(0, 0); }
+      33% { transform: scale(1.1, 0.9) translate(20px, -10px); }
+      66% { transform: scale(0.9, 1.1) translate(-10px, 20px); }
+    }
+    @keyframes blob-move-2 {
+      0%, 100% { transform: scale(1) translate(0, 0); }
+      33% { transform: scale(1.05, 0.95) translate(-15px, 10px); }
+      66% { transform: scale(0.95, 1.05) translate(10px, -20px); }
+    }
+    @keyframes blob-move-3 {
+      0%, 100% { transform: scale(1) translate(0, 0); }
+      33% { transform: scale(1.08, 0.92) translate(10px, 15px); }
+      66% { transform: scale(0.92, 1.08) translate(-20px, -10px); }
+    }
+    .blob-animate-1 {
+      animation: blob-move-1 16s ease-in-out infinite;
+    }
+    .blob-animate-2 {
+      animation: blob-move-2 18s ease-in-out infinite;
+    }
+    .blob-animate-3 {
+      animation: blob-move-3 20s ease-in-out infinite;
+    }
+
+    @keyframes aurora-move {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+      50% { transform: translateX(10%) scale(1.1); opacity: 1; }
+    }
+    .aurora-animate {
+      animation: aurora-move 12s ease-in-out infinite;
+    }
+
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-16px);}
+    }
+    .animate-bounce-slow {
+      animation: bounce-slow 2.5s infinite;
+    }
+
+    @keyframes footer-robot-move {
+      0%, 100% { transform: translateY(0) rotate(-8deg);}
+      50% { transform: translateY(-12px) rotate(8deg);}
+    }
+    .animate-footer-robot-move {
+      animation: footer-robot-move 3s ease-in-out infinite;
+    }
+
+    @keyframes message-float-1 {
+      0%, 100% { transform: translateY(0) scale(1);}
+      50% { transform: translateY(-12px) scale(1.1);}
+    }
+    .animate-message-float-1 {
+      animation: message-float-1 2.2s ease-in-out infinite;
+    }
+
+    @keyframes message-float-2 {
+      0%, 100% { transform: translateY(0) scale(1);}
+      50% { transform: translateY(-8px) scale(1.15);}
+    }
+    .animate-message-float-2 {
+      animation: message-float-2 2.8s ease-in-out infinite;
+    }
+
+    @keyframes message-float-3 {
+      0%, 100% { transform: translateY(0) scale(1);}
+      50% { transform: translateY(-6px) scale(1.08);}
+    }
+    .animate-message-float-3 {
+      animation: message-float-3 3.1s ease-in-out infinite;
+    }
+
+    @keyframes arrow-orbit-1 {
+      0% { transform: translate(-50%, 0) rotate(0deg);}
+      50% { transform: translate(-50%, -24px) rotate(20deg);}
+      100% { transform: translate(-50%, 0) rotate(0deg);}
+    }
+    .animate-arrow-orbit-1 {
+      animation: arrow-orbit-1 2.5s ease-in-out infinite;
+    }
+
+    @keyframes arrow-orbit-2 {
+      0% { transform: translate(0, 0) rotate(0deg);}
+      50% { transform: translate(-12px, 12px) rotate(-20deg);}
+      100% { transform: translate(0, 0) rotate(0deg);}
+    }
+    .animate-arrow-orbit-2 {
+      animation: arrow-orbit-2 2.8s ease-in-out infinite;
+    }
+
+    @keyframes arrow-orbit-3 {
+      0% { transform: translate(0, 0) rotate(0deg);}
+      50% { transform: translate(12px, 12px) rotate(20deg);}
+      100% { transform: translate(0, 0) rotate(0deg);}
+    }
+    .animate-arrow-orbit-3 {
+      animation: arrow-orbit-3 3.1s ease-in-out infinite;
+    }
+
+    @keyframes robot-float {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-24px);}
+    }
+    .animate-robot-float {
+      animation: robot-float 4s ease-in-out infinite;
+    }
+
+    @keyframes eye-blink {
+      0%, 92%, 100% { opacity: 1; }
+      95%, 98% { opacity: 0; }
+    }
+    .animate-eye-blink {
+      animation: eye-blink 4s infinite;
+    }
+
+    @keyframes robot-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(56,189,248,0.4);}
+      50% { box-shadow: 0 0 32px 8px rgba(56,189,248,0.6);}
+    }
+    .animate-robot-glow {
+      animation: robot-glow 2.5s infinite;
+    }
+
+    @keyframes typing-dot {
+      0%, 80%, 100% { opacity: 0.2; }
+      40% { opacity: 1; }
+    }
+    .typing-dot-1 {
+      animation: typing-dot 1.2s infinite;
+      animation-delay: 0s;
+    }
+    .typing-dot-2 {
+      animation: typing-dot 1.2s infinite;
+      animation-delay: 0.2s;
+    }
+    .typing-dot-3 {
+      animation: typing-dot 1.2s infinite;
+      animation-delay: 0.4s;
+    }
+
+    @keyframes thought-dot {
+      0%, 70%, 100% { opacity: 0.2; }
+      20%, 50% { opacity: 1; }
+    }
+    .thought-dot-1 {
+      animation: thought-dot 2.5s infinite;
+      animation-delay: 0s;
+    }
+    .thought-dot-2 {
+      animation: thought-dot 2.5s infinite;
+      animation-delay: 0.3s;
+    }
+    .thought-dot-3 {
+      animation: thought-dot 2.5s infinite;
+      animation-delay: 0.6s;
+    }
+
+    @keyframes speech-bubble-pop {
+      0%, 60%, 100% { opacity: 0; transform: scale(0.8);}
+      70%, 90% { opacity: 1; transform: scale(1);}
+    }
+    .animate-speech-bubble-pop {
+      animation: speech-bubble-pop 2.5s infinite;
+    }
+
+    .futuristic-speech-bubble {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      border: 2px solid;
+      border-image: linear-gradient(90deg, #38bdf8 0%, #a5b4fc 100%) 1;
+      box-shadow: 0 2px 16px 0 rgba(56,189,248,0.15), 0 0 8px 2px #a5b4fc44;
+      padding: 0.5rem 1.25rem;
+      animation: bubble-glow 1.5s infinite alternate;
+    }
+    @keyframes bubble-glow {
+      0% { box-shadow: 0 2px 16px 0 rgba(56,189,248,0.15), 0 0 8px 2px #a5b4fc44; }
+      100% { box-shadow: 0 4px 24px 0 rgba(56,189,248,0.25), 0 0 16px 4px #38bdf888; }
+    }
+  
+  
+    /* Existing */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading;
+}
+
+/* Add this below to target only the Navbar title */
+.custom-navbar-title,
+.navbar-title {
+  font-family: 'MuseoModerno', sans-serif;
+}

@@ -1,0 +1,9 @@
+{
+  "welcome_message": "Welcome to our website!",
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  }
+}
