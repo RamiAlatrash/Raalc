@@ -2,39 +2,39 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
 
-const RaalcNowItem = ({ title, description, imageUrl, altText, listItems, customClasses = "", imgClassName = "" }) => (
-    <motion.div 
-      className={`glassmorphism-card p-6 md:p-8 rounded-xl shadow-xl flex flex-col md:flex-row items-center ${customClasses} border border-primary/20 hover:shadow-primary/20 hover:border-primary/40 transition-all duration-300`}
-      style={{ borderImage: "linear-gradient(90deg, #38bdf8 0%, #f0abfc 100%) 1" }}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="flex-1 max-w-full md:max-w-[50%]">
-        <h3 className="text-2xl md:text-3xl font-heading mb-2 text-primary">{title}</h3>
-        <p className="text-brand-dark-grey mb-3 text-sm md:text-base leading-relaxed font-body whitespace-pre-line">
-          {description}
-        </p>
-            {listItems && (
-          <ul className="space-y-2">
-            {listItems.map((item, idx) => (
-              <li key={idx} className="flex items-center font-body text-brand-dark-grey">
-                <ShieldCheck className="h-5 w-5 mr-2 flex-shrink-0 text-primary" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-      <div className="flex-shrink-0 w-full md:w-[50%] flex justify-center mt-4 md:mt-0 overflow-hidden">
-            <img
-              src={imageUrl}
-              alt={altText}
-              className={`w-80 h-80 object-contain rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 ${imgClassName}`}
-            />
-          </div>
-    </motion.div>
+const RaalcNowItem = ({ title, description, imageUrl, altText, listItems, customClasses, imgClassName }) => {
+  return (
+    <div className={`flex flex-col md:flex-row items-center gap-8 p-6 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-primary/20 ${customClasses}`}>
+      <motion.img
+        src={imageUrl}
+        alt={altText}
+        className={`rounded-lg shadow-md object-cover ${imgClassName || 'w-full md:w-1/2'}`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7 }}
+      />
+      <div className="flex-1">
+        <h3 className="text-2xl font-heading text-primary mb-3">{title}</h3>
+        <p className="text-brand-dark-grey mb-4 leading-relaxed">{description}</p>
+        <ul className="space-y-2">
+          {listItems.map((item, index) => (
+            <motion.li
+              key={index}
+              className="flex items-center font-body text-brand-dark-grey"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              <ShieldCheck className="h-5 w-5 mr-2 flex-shrink-0 text-primary" />
+              <span>{item}</span>
+            </motion.li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
+};
 
 export default RaalcNowItem; 

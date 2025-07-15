@@ -22,7 +22,7 @@
             heading: ['Rowdies', ...defaultTheme.fontFamily.sans],
             body: ['MuseoModerno', ...defaultTheme.fontFamily.sans],
             accentText: ['Rubik Glitch', ...defaultTheme.fontFamily.sans],
-            arabic: ['Cairo', 'MuseoModerno', ...defaultTheme.fontFamily.sans],
+            arabic: ['Almarai', 'Cairo', 'IBM Plex Sans Arabic', 'MuseoModerno', ...defaultTheme.fontFamily.sans],
           },
           colors: {
             border: 'hsl(var(--border))',

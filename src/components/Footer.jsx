@@ -5,26 +5,26 @@ import { useLocation } from 'react-router-dom';
 
 const footerText = {
   en: {
-    description_p1: "Aladheed AlRashidiya provides top-tier government and legal consulting services, simplifying complex procedures with expertise and efficiency.",
-    description_p2: "Your trusted partner for navigating the legal landscape in the UAE.",
+    description_p1: "RAALC | AlAdheed AlRashidiya provides top-tier government and legal consulting services, simplifying complex procedures with expertise and efficiency.",
+    description_p2: "Your trusted partner for navigating government procedures and legal landscape in the UAE.",
     quick_links: "Quick Links",
     home: "Home",
     services: "Services",
     testimonials: "Testimonials",
     contact: "Contact",
-    copyright: "© {{year}} Aladheed AlRashidiya Technologies Inc. All rights reserved.",
-    made_by: "Made by Aladheed AlRashidiya Govt. Services"
+    copyright: "© {{year}} AlAdheed - RAALC Government Services. All rights reserved.",
+    made_by: "Powered by AlAdheed - RAALC Government Services"
   },
   ar: {
-    description_p1: "تقدم العضيد الراشدية أفضل الخدمات الحكومية والاستشارات القانونية، وتبسط الإجراءات المعقدة بالخبرة والكفاءة.",
-    description_p2: "شريكك الموثوق للتنقل في المشهد القانوني في الإمارات العربية المتحدة.",
+    description_p1: ".رالك | العضيد الراشدية تقدم أفضل الخدمات الحكومية والاستشارات القانونية، وتبسط الإجراءات المعقدة بالخبرة والكفاءة",
+    description_p2: ".شريكك الموثوق للتنقل في الإجراءات الحكومية والمشهد القانوني في الإمارات العربية المتحدة",
     quick_links: "روابط سريعة",
     home: "الرئيسية",
     services: "الخدمات",
     testimonials: "الشهادات",
     contact: "التواصل",
-    copyright: "© {{year}} شركة العضيد الراشدية تكنولوجيز. جميع الحقوق محفوظة.",
-    made_by: "صنع بواسطة العضيد الراشدية للخدمات الحكومية"
+    copyright: ".© {{year}} العضيد - رالك للخدمات الحكومية. جميع الحقوق محفوظة",
+    made_by: "مدعوم بواسطة العضيد - رالك للخدمات الحكومية"
   }
 };
 

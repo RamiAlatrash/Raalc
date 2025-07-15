@@ -61,7 +61,7 @@ const LocationSectionAr = ({ id }) => {
 
     if (!window.google) {
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyC9bQhFGy-S02nG9lAfHgdMJwVCp-2c6-g&callback=initMap&language=ar`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&callback=initMap&language=ar`;
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);
@@ -100,7 +100,7 @@ const LocationSectionAr = ({ id }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          موقعنا مناسب في دبي. تفضل بزيارتنا لمناقشة احتياجاتك القانونية شخصيًا.
+          .موقعنا مناسب في دبي. تفضل بزيارتنا لمناقشة احتياجاتك القانونية شخصياً
         </motion.p>
 
         <div ref={mapRef} id="map" className="w-full h-[500px] rounded-lg overflow-hidden shadow-lg mb-8"></div>

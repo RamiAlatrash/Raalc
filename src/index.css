@@ -90,12 +90,22 @@
       }
 
       .font-arabic {
-        font-family: 'Cairo', 'MuseoModerno', sans-serif;
-        /* Add better letter spacing and line height for Arabic text */
-        letter-spacing: 0;
-        line-height: 1.6;
-        font-weight: 600;
+        font-family: 'Almarai', 'Cairo', 'IBM Plex Sans Arabic', 'MuseoModerno', sans-serif;
+        /* Bold, prominent styling for ALL Arabic text - consistent across all elements */
+        letter-spacing: 0.02em;
+        line-height: 1.3;
+        font-weight: 700;
         font-feature-settings: 'liga' 1, 'kern' 1;
+      }
+      
+      /* Ensure all Arabic text elements are consistent */
+      .font-arabic h1, .font-arabic h2, .font-arabic h3, .font-arabic h4, .font-arabic h5, .font-arabic h6,
+      .font-arabic p, .font-arabic span, .font-arabic div, .font-arabic li, .font-arabic button, 
+      .font-arabic input, .font-arabic textarea, .font-arabic label, .font-arabic a {
+        font-family: 'Almarai', 'Cairo', 'IBM Plex Sans Arabic', 'MuseoModerno', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 1.3;
       }
       
       /* RTL classes for text content only */
@@ -406,3 +416,14 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-title {
   font-family: 'MuseoModerno', sans-serif;
 }
+
+@keyframes smooth-glow {
+      0%, 100% { 
+        filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.3));
+        transform: scale(1);
+      }
+      50% { 
+        filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6));
+        transform: scale(1.02);
+      }
+    }

@@ -41,7 +41,7 @@ const ContactSectionAr = ({ id }) => {
     if (!name || !email || !message) {
       toast({
         title: "نموذج غير مكتمل",
-        description: "يرجى ملء جميع الحقول لإرسال رسالة.",
+        description: ".يرجى ملء جميع الحقول لإرسال رسالة",
         variant: "destructive",
       });
       return;
@@ -83,7 +83,7 @@ const ContactSectionAr = ({ id }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          تواصل معنا عبر أي من القنوات التالية. نحن هنا للمساعدة!
+          !تواصل معنا عبر أي من القنوات التالية. نحن هنا للمساعدة
         </motion.p>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <motion.div 
@@ -95,7 +95,7 @@ const ContactSectionAr = ({ id }) => {
           >
             <div>
               <h3 className="text-2xl font-heading text-primary mb-3 font-arabic">ابقى على تواصل</h3>
-              <p className="text-brand-dark-grey font-arabic">هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.</p>
+              <p className="text-brand-dark-grey font-arabic">.هل لديك سؤال أو مشروع في ذهنك نود أن نسمع منك</p>
             </div>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -104,11 +104,17 @@ const ContactSectionAr = ({ id }) => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-6 w-6 text-primary ml-3" />
-                <a href="mailto:consult2@raalc.ae" className="text-brand-dark-grey hover:text-primary transition-colors font-arabic">consult2@raalc.ae</a>
+                <div className="flex flex-col space-y-1">
+                  <a href="mailto:ceo@aladheed.govservices.ae" className="text-brand-dark-grey hover:text-primary transition-colors font-arabic">ceo@aladheed.govservices.ae</a>
+                  <a href="mailto:digital@aladheed.govservices.ae" className="text-brand-dark-grey hover:text-primary transition-colors font-arabic text-sm opacity-80">digital@aladheed.govservices.ae</a>
+                </div>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-6 w-6 text-primary mt-1 ml-3" />
-                <span className="text-brand-dark-grey font-arabic">دبي، الإمارات العربية المتحدة</span>
+                <div className="flex flex-col space-y-1">
+                  <span className="text-brand-dark-grey font-arabic">الطابق الأول - مركز بن سوقات، طريق المطار</span>
+                  <span className="text-brand-dark-grey font-arabic">الراشدية - دبي، الإمارات العربية المتحدة</span>
+                </div>
               </div>
             </div>
             <div className="pt-4">
@@ -151,7 +157,7 @@ const ContactSectionAr = ({ id }) => {
               <h3 className="text-2xl font-heading text-primary mb-6 font-arabic">أرسل رسالة</h3>
               <form 
                 onSubmit={handleSubmit}
-                action="https://formsubmit.co/digital@aladheed.govservices.ae" 
+                action="https://formsubmit.co/ceo@aladheed.govservices.ae" 
                 method="POST"
                 className="space-y-6"
               >
@@ -186,7 +192,7 @@ const ContactSectionAr = ({ id }) => {
                     name="message" 
                     id="message" 
                     rows={4} 
-                    placeholder="كيف يمكننا مساعدتك اليوم؟" 
+                    placeholder="؟كيف يمكننا مساعدتك اليوم" 
                     required 
                     className="font-arabic text-right"
                   />

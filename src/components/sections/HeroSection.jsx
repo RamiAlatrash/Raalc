@@ -74,12 +74,13 @@ const HeroSection = ({ id, scrollToSection }) => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="order-2 md:order-1"
         >
           <div className="flex items-center mb-6">
             <img
               src="/images/robot-images/robot1.png"
               alt="Robot Mascot"
-              className="w-32 h-32 mr-2 hidden md:block"
+              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mr-3 sm:mr-4"
               style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.08))' }}
             />
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading text-primary leading-tight">
@@ -90,36 +91,36 @@ const HeroSection = ({ id, scrollToSection }) => {
             Transform your operations with cutting-edge artificial intelligence solutions designed for the future of business automation and growth.
           </p>
           {/* Button and Animated Robot Group side by side, with overlap (robot on right) */}
-          <div className="flex flex-row items-center justify-center gap-0 mb-6 relative w-full" style={{ minHeight: '140px' }}>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 mb-6 relative w-full" style={{ minHeight: '140px' }}>
             {/* Main CTA Button with 3D effect, subtly overlapped by robot on the right */}
             <a
               href="https://api.whatsapp.com/send/?phone=971564044137&text=Welcome%20to%20RAALC.%20Get%20your%20virtual%20token%20now"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-lg text-xl font-heading font-bold hover:scale-105 transition-transform border-2 border-primary relative z-10"
+              className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-lg text-xl font-heading font-bold hover:scale-105 transition-transform border-2 border-primary relative z-10 w-full md:w-auto text-center"
               style={{ boxShadow: '0 4px 16px rgba(56,189,248,0.18)', marginRight: '-1.25rem' }}
             >
               Get Your Online Token Now
             </a>
             {/* Robot Group, subtly overlapping the button on the right */}
-            <div className="relative w-32 h-40 flex flex-col items-center animate-robot-float z-20" style={{ marginLeft: '-1.25rem', marginBottom: '-1.5rem' }}>
+            <div className="relative w-24 h-32 sm:w-28 sm:h-36 md:w-32 md:h-40 flex flex-col items-center animate-robot-float z-20" style={{ marginLeft: '-1.25rem', marginBottom: '-1.5rem' }}>
               {/* Speech Bubble at the top dot */}
-              <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20 animate-speech-bubble-pop pointer-events-none">
-                <div className="bg-white text-primary px-6 py-2 rounded-full shadow-lg text-base font-body border border-primary whitespace-nowrap">
+              <div className="absolute -top-10 sm:-top-12 left-1/2 transform -translate-x-1/2 z-20 animate-speech-bubble-pop pointer-events-none">
+                <div className="bg-white text-primary px-4 sm:px-6 py-2 rounded-full shadow-lg text-sm sm:text-base font-body border border-primary whitespace-nowrap">
                   lets get you connected!
                 </div>
               </div>
               {/* Thought Dots, closer to the robot's head */}
-              <div className="flex flex-col items-center absolute -top-4 left-1/2 transform -translate-x-1/2 z-10 space-y-1">
-                <span className="w-4 h-4 bg-primary rounded-full thought-dot-3"></span>
-                <span className="w-3 h-3 bg-primary rounded-full thought-dot-2"></span>
-                <span className="w-2 h-2 bg-primary rounded-full thought-dot-1"></span>
+              <div className="flex flex-col items-center absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 z-10 space-y-1">
+                <span className="w-3 h-3 sm:w-4 sm:h-4 bg-primary rounded-full thought-dot-3"></span>
+                <span className="w-2 h-2 sm:w-3 sm:h-3 bg-primary rounded-full thought-dot-2"></span>
+                <span className="w-1 h-1 sm:w-2 sm:h-2 bg-primary rounded-full thought-dot-1"></span>
               </div>
               {/* Robot Image, moved down and right to subtly touch the button */}
               <img
                 src="/images/robot5.png"
                 alt="Hero Robot"
-                className="w-52 h-52 mt-10 -mr-4"
+                className="w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 mt-6 sm:mt-8 md:mt-10 -mr-2 sm:-mr-3 md:-mr-4"
                 aria-hidden="true"
               />
             </div>
@@ -131,7 +132,7 @@ const HeroSection = ({ id, scrollToSection }) => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative p-1 md:p-2 flex justify-center items-center min-h-[400px]"
+          className="relative p-1 md:p-2 flex justify-center items-center min-h-[400px] order-1 md:order-2"
         >
           <img
             src="/images/Robot-Home.png"

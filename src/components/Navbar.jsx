@@ -36,6 +36,8 @@ const Navbar = ({ scrollToSection }) => {
     { name: navText[lang].testimonials, id: 'testimonials' },
     { name: navText[lang].contact, id: 'contact' },
   ];
+
+  // Keep RTL order for Arabic navigation
   const navItemsToRender = lang === 'ar' ? [...navItems].reverse() : navItems;
 
   const changeLanguage = (lng) => {
@@ -59,7 +61,7 @@ const Navbar = ({ scrollToSection }) => {
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
-          {/* Logo + Title */}
+          {/* Logo + Title - Consistent layout for both languages */}
           <button
             onClick={() => handleNavClick('home')}
             className="flex items-center space-x-2 h-full focus:outline-none"
@@ -73,28 +75,34 @@ const Navbar = ({ scrollToSection }) => {
               className="flex flex-col items-center text-primary leading-none"
               style={{ fontFamily: 'Arial, Helvetica, sans-serif !important' }}
             >
-              <span className={`text-2xl font-bold tracking-wide ${lang === 'ar' ? 'font-arabic' : ''}`}>{navText[lang].brand}</span>
+              <span className={`text-3xl font-black tracking-widest bg-gradient-to-r from-primary via-blue-500 to-blue-300 bg-clip-text text-transparent drop-shadow-lg ${lang === 'ar' ? 'font-arabic' : ''}`} style={{ animation: 'smooth-glow 3s ease-in-out infinite' }}>{navText[lang].brand}</span>
               <span className={`text-sm font-bold ${lang === 'ar' ? 'font-arabic leading-tight' : '-mt-2'}`}>{navText[lang].slogan}</span>
             </span>
           </button>
 
-          {/* Desktop Links */}
-          <div className={`hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-full justify-between ${lang === 'ar' ? 'text-right' : ''}`} style={{maxWidth: '700px'}}>
-            {navItemsToRender.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`px-8 py-4 rounded-md text-xl font-bold text-brand-dark-grey hover:text-primary transition duration-200 transform hover:scale-110 ${lang === 'ar' ? 'px-10 tracking-normal' : ''}`}
-              >
-                {item.name}
-              </button>
-            ))}
+          {/* Desktop Links - Fixed positioning for consistency */}
+          <div className="hidden md:flex items-center justify-center flex-1">
+            <div className="flex items-center space-x-8">
+              {navItemsToRender.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className="px-6 py-4 rounded-md text-xl font-bold text-brand-dark-grey hover:text-primary transition duration-200 transform hover:scale-110 whitespace-nowrap"
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Language Switcher */}
+          {/* Language Switcher - ALWAYS in the same position */}
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost" size="sm" onClick={() => changeLanguage('en')}>English</Button>
-            <Button variant="ghost" size="sm" onClick={() => changeLanguage('ar')}>العربية</Button>
+            <Button variant="ghost" size="sm" onClick={() => changeLanguage('en')}>
+              English
+            </Button>
+            <Button variant="ghost" size="sm" onClick={() => changeLanguage('ar')}>
+              العربية
+            </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -115,7 +123,7 @@ const Navbar = ({ scrollToSection }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Language buttons ALWAYS in same position */}
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
@@ -124,7 +132,7 @@ const Navbar = ({ scrollToSection }) => {
           transition={{ duration: 0.2 }}
           className="md:hidden bg-white/80 backdrop-blur-md border-t border-white/30 shadow-lg"
         >
-          <div className={`px-2 pt-2 pb-3 space-y-1 ${lang === 'ar' ? 'flex flex-col-reverse' : ''}`}>
+          <div className="px-2 pt-2 pb-3 space-y-1">
             {navItemsToRender.map((item) => (
               <button
                 key={item.id}
@@ -134,16 +142,20 @@ const Navbar = ({ scrollToSection }) => {
                 {item.name}
               </button>
             ))}
+            {/* Language selection ALWAYS at the bottom in same position */}
             <div className="flex justify-center items-center space-x-2 pt-4 border-t border-white/30">
-              <Button variant="ghost" size="sm" onClick={() => changeLanguage('en')}>English</Button>
-              <Button variant="ghost" size="sm" onClick={() => changeLanguage('ar')}>العربية</Button>
+              <Button variant="ghost" size="sm" onClick={() => changeLanguage('en')}>
+                English
+              </Button>
+              <Button variant="ghost" size="sm" onClick={() => changeLanguage('ar')}>
+                العربية
+              </Button>
             </div>
           </div>
         </motion.div>
       )}
     </motion.nav>
   );
-  
 };
 
 export default Navbar;

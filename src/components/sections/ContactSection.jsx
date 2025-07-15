@@ -109,11 +109,17 @@ const ContactSection = ({ id }) => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-6 w-6 text-primary" />
-                <a href="mailto:consult2@raalc.ae" className="text-brand-dark-grey hover:text-primary transition-colors font-body">consult2@raalc.ae</a>
+                <div className="flex flex-col space-y-1">
+                  <a href="mailto:ceo@aladheed.govservices.ae" className="text-brand-dark-grey hover:text-primary transition-colors font-body">ceo@aladheed.govservices.ae</a>
+                  <a href="mailto:digital@aladheed.govservices.ae" className="text-brand-dark-grey hover:text-primary transition-colors font-body text-sm opacity-80">digital@aladheed.govservices.ae</a>
+                </div>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-6 w-6 text-primary mt-1" />
-                <span className="text-brand-dark-grey font-body">Dubai, UAE</span>
+                <div className="flex flex-col space-y-1">
+                  <span className="text-brand-dark-grey font-body">1st Floor - Bin Sougat Center, Airport Road</span>
+                  <span className="text-brand-dark-grey font-body">Al Rashidiya - Dubai, UAE</span>
+                </div>
               </div>
             </div>
             <div className="pt-4">
@@ -156,7 +162,7 @@ const ContactSection = ({ id }) => {
             >
               <h3 className="text-2xl font-heading text-primary mb-6">Send a Message</h3>
               <form 
-                action="https://formsubmit.co/digital@aladheed.govservices.ae" 
+                action="https://formsubmit.co/ceo@aladheed.govservices.ae" 
                 method="POST"
                 className="space-y-6"
               >

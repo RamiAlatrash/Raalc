@@ -8,9 +8,14 @@ const servicesDataAr = [
     "icon": "/images/martial.png"
   },
   {
-    "title": "زواج مدني وتجاري",
-    "description": "تسهل شركة العضيد الراشدية خدمات حكومية لتسجيل الزواج المدني في دبي، مما يضمن إكمال جميع الأوراق بدقة. يرشدك فريقنا المتمرس خلال العملية بأكملها، مع تلبية جميع المتطلبات.\n\nكما تتخصص الشركة في تقديم خدمات حكومية للمطالبات المتعلقة بالفواتير غير المدفوعة أو الشيكات المرتجعة. نساعد في تسجيل المطالبات والإشعارات وأرشفة المستندات، ودحض الادعاءات المعارضة وتسهيل تنفيذ الإشعارات.",
+    "title": "زواج مدني",
+    "description": "تسهل شركة العضيد الراشدية خدمات حكومية لتسجيل الزواج المدني في دبي، مما يضمن إكمال جميع الأوراق بدقة. يرشدك فريقنا المتمرس خلال العملية بأكملها، مع تلبية جميع المتطلبات.",
     "icon": "/images/civil-marriage.png"
+  },
+  {
+    "title": "خدمات مدنية وتجارية",
+    "description": "تتخصص الشركة في تقديم خدمات حكومية للمطالبات المتعلقة بالفواتير غير المدفوعة أو الشيكات المرتجعة. نساعد في تسجيل المطالبات والإشعارات وأرشفة المستندات، ودحض الادعاءات المعارضة وتسهيل تنفيذ الإشعارات.",
+    "icon": "/images/commerical.png"
   },
   {
     "title": "الميراث",
@@ -55,15 +60,29 @@ const SectionWrapper = ({ id, children, className = "" }) => (
 const ServicesSectionAr = ({ id }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [currentService, setCurrentService] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
+  
   useEffect(() => {
     if (inView) controls.start('visible');
   }, [controls, inView]);
 
-  const startIndex = servicesDataAr.findIndex(s => s.title.startsWith('إثبات'));
+  // Handle responsive sizing
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const startIndex = servicesDataAr.findIndex(s => s.title.startsWith('شؤون'));
   const len = servicesDataAr.length;
 
   const centralVariant = {
@@ -159,7 +178,7 @@ const ServicesSectionAr = ({ id }) => {
       <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
         <div className="w-full max-w-3xl text-center">
           <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-4 text-primary font-arabic rtl-text"
+            className="text-3xl sm:text-4xl md:text-5xl font-heading mb-4 text-primary font-arabic rtl-text text-center"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -168,33 +187,73 @@ const ServicesSectionAr = ({ id }) => {
             خدماتنا الشاملة
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl text-center text-gray-700 mb-8 font-arabic"
+            className="text-base sm:text-lg md:text-xl text-brand-dark-grey mb-8 font-body font-arabic text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            تقدم شركة العضيد الراشدية مجموعة واسعة من الخدمات الحكومية المصممة لتلبية احتياجاتك الخاصة. اكتشف كيف يمكننا مساعدتك.
+            .تقدم شركة العضيد الراشدية مجموعة واسعة من الخدمات الحكومية المصممة لتلبية احتياجاتك الخاصة. اكتشف كيف يمكننا مساعدتك
           </motion.p>
         </div>
-        <div className="w-full flex justify-end">
-          <div
-            className={`relative w-48 h-48 mt-8 hidden md:flex flex-col items-center animate-robot-float mr-12 ltr-preserve`}
-          >
-            <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 flex flex-col space-y-2 mb-6 ltr-preserve">
-              <span className="w-8 h-8 bg-primary rounded-full thought-dot-3"></span>
-              <span className="w-6 h-6 bg-primary rounded-full thought-dot-2"></span>
-              <span className="w-4 h-4 bg-primary rounded-full thought-dot-1"></span>
+        
+        {/* Mobile Robot */}
+        <div className="w-full flex justify-center md:hidden mt-6">
+          <div className="relative w-32 h-32 flex flex-col items-center animate-robot-float ltr-preserve">
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 flex flex-col space-y-1 mb-6 ltr-preserve">
+              <span className="w-4 h-4 bg-primary rounded-full thought-dot-3"></span>
+              <span className="w-3 h-3 bg-primary rounded-full thought-dot-2"></span>
+              <span className="w-2 h-2 bg-primary rounded-full thought-dot-1"></span>
             </div>
-            <div className="absolute -top-36 left-1/2 transform -translate-x-1/2 animate-speech-bubble-pop">
-              <div className="bg-white text-primary px-8 py-4 rounded-full shadow-lg text-lg font-arabic border border-primary rtl-text">
+            <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 animate-speech-bubble-pop">
+              <div className="bg-white text-primary px-4 py-2 rounded-full shadow-lg text-sm font-body font-arabic border border-primary rtl-text">
                 اكتشف خدماتنا
               </div>
             </div>
             <img
               src="/images/robot-images/robot16.png"
               alt="Decorative Robot"
-              className="w-48 h-48 ltr-preserve"
+              className="w-32 h-32 ltr-preserve"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+        
+        {/* Desktop Robot - Repositioned below service wheel */}
+        <div className="w-full flex justify-end mt-8">
+          <div
+            className={`relative hidden md:flex flex-col items-center animate-robot-float ltr-preserve ${
+              isTablet ? 'w-32 h-32 mr-8' : 'w-48 h-48 mr-16'
+            }`}
+          >
+            <div className={`absolute flex flex-col space-y-2 mb-6 ltr-preserve ${
+              isTablet ? '-top-12 left-1/2 transform -translate-x-1/2' : '-top-20 left-1/2 transform -translate-x-1/2'
+            }`}>
+              <span className={`bg-primary rounded-full thought-dot-3 ${
+                isTablet ? 'w-6 h-6' : 'w-8 h-8'
+              }`}></span>
+              <span className={`bg-primary rounded-full thought-dot-2 ${
+                isTablet ? 'w-4 h-4' : 'w-6 h-6'
+              }`}></span>
+              <span className={`bg-primary rounded-full thought-dot-1 ${
+                isTablet ? 'w-3 h-3' : 'w-4 h-4'
+              }`}></span>
+            </div>
+            <div className={`absolute animate-speech-bubble-pop ${
+              isTablet ? '-top-24 left-1/2 transform -translate-x-1/2' : '-top-36 left-1/2 transform -translate-x-1/2'
+            }`}>
+              <div className={`bg-white text-primary rounded-full shadow-lg font-body font-arabic border border-primary rtl-text ${
+                isTablet ? 'px-6 py-3 text-sm' : 'px-8 py-4 text-lg'
+              }`}>
+                اكتشف خدماتنا
+              </div>
+            </div>
+            <img
+              src="/images/robot-images/robot16.png"
+              alt="Decorative Robot"
+              className={`object-contain ltr-preserve ${
+                isTablet ? 'w-32 h-32' : 'w-48 h-48'
+              }`}
               aria-hidden="true"
             />
           </div>
@@ -205,22 +264,29 @@ const ServicesSectionAr = ({ id }) => {
         ref={ref}
         initial="hidden"
         animate={controls}
-        className="relative flex justify-center items-center min-h-[350px] -mt-8"
+        className={`relative flex justify-center items-center ${
+          isMobile ? 'min-h-[300px] -mt-2' : isTablet ? 'min-h-[400px] -mt-4' : 'min-h-[500px] -mt-6'
+        }`}
       >
         <motion.div
-          className="absolute z-10 flex items-center justify-center w-56 h-56 bg-[#047FE1] text-white rounded-full shadow-lg cursor-pointer animate-robot-float"
+          className={`absolute z-10 flex items-center justify-center bg-[#047FE1] text-white rounded-full shadow-lg cursor-pointer animate-robot-float ${
+            isMobile ? 'w-32 h-32' : isTablet ? 'w-40 h-40' : 'w-64 h-64'
+          }`}
           variants={centralVariant}
         >
           <img
             src="/images/543c1ea9-4152-4f62-b395-6fe34c21c568.png"
             alt="روبوت راك"
-            className="w-44 h-44"
+            className={`object-contain ${
+              isMobile ? 'w-28 h-28' : isTablet ? 'w-36 h-36' : 'w-52 h-52'
+            }`}
           />
         </motion.div>
 
         {servicesDataAr.map((service, index) => {
           const angle = (360 / len) * index;
-          const radius = 200;
+          // Increased radius for larger wheel
+          const radius = isMobile ? 160 : isTablet ? 200 : 280;
           const x = Math.cos((angle * Math.PI) / 180) * radius;
           const y = Math.sin((angle * Math.PI) / 180) * radius;
 
@@ -228,22 +294,37 @@ const ServicesSectionAr = ({ id }) => {
             <motion.div
               key={index}
               className="absolute flex flex-col items-center cursor-pointer z-20"
-              style={{ x, y, width: 80, height: 110 }}
+              style={{ 
+                x, 
+                y, 
+                width: isMobile ? 70 : isTablet ? 80 : 100, 
+                height: isMobile ? 100 : isTablet ? 110 : 130
+              }}
               variants={iconVariant}
               custom={index}
               onClick={() => openPopup(service)}
             >
               <motion.div
-                className="bg-[#047FE1] text-white shadow-lg flex items-center justify-center rounded-full w-16 h-16 p-2"
+                className={`bg-[#047FE1] text-white shadow-lg flex items-center justify-center rounded-full ${
+                  isMobile ? 'w-14 h-14 p-1.5' : isTablet ? 'w-16 h-16 p-2' : 'w-20 h-20 p-2.5'
+                }`}
                 whileHover={{ scale: 1.2 }}
               >
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="w-8 h-8 object-contain"
+                  className={`object-contain ${
+                    isMobile ? 'w-7 h-7' : isTablet ? 'w-8 h-8' : 'w-10 h-10'
+                  }`}
                 />
               </motion.div>
-              <div className="text-xs font-medium text-primary text-center mt-2 whitespace-pre-line font-arabic">
+              <div 
+                className={`font-medium text-primary text-center whitespace-pre-line font-arabic ${
+                  isMobile ? 'text-xs mt-2 max-w-[70px]' : 
+                  isTablet ? 'text-sm mt-2 max-w-[80px]' : 
+                  'text-sm mt-3 max-w-[100px]'
+                }`}
+              >
                 {service.title}
               </div>
             </motion.div>
@@ -291,7 +372,7 @@ const ServicesSectionAr = ({ id }) => {
                     </svg>
                   </button>
                 </div>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-arabic">
+                <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-body font-arabic">
                   {currentService.description}
                 </p>
               </div>

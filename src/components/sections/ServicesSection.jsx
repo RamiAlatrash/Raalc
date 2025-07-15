@@ -8,9 +8,14 @@ const servicesData = [
     "icon": "/images/martial.png"
   },
   {
-    "title": "Civil & Commercial",
-    "description": "We handle civil marriage registration and commercial legal matters, including unpaid invoices and bounced cheques, with expert guidance and full legal support.",
+    "title": "Civil Marriage",
+    "description": "We handle civil marriage registration in Dubai, ensuring all paperwork is completed accurately. Our experienced team guides you through the entire process, meeting all requirements.",
     "icon": "/images/civil-marriage.png"
+  },
+  {
+    "title": "Civil & Commercial",
+    "description": "We handle commercial legal matters, including unpaid invoices and bounced cheques, with expert guidance and full legal support.",
+    "icon": "/images/commerical.png"
   },
   {
     "title": "Inheritance",
@@ -55,17 +60,31 @@ const SectionWrapper = ({ id, children, className = "" }) => (
 const ServicesSection = ({ id }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [currentService, setCurrentService] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   // setup controls + inView
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
+  
   useEffect(() => {
     if (inView) controls.start('visible');
   }, [controls, inView]);
 
-  // find index of Parentage so we start our stagger from it
-  const startIndex = servicesData.findIndex(s => s.title.startsWith('Parentage'));
+  // Handle responsive sizing
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      setIsTablet(window.innerWidth >= 640 && window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // find index of Marital Matters so we start our stagger from it
+  const startIndex = servicesData.findIndex(s => s.title.startsWith('Marital'));
   const len = servicesData.length;
 
   // Central circle animation
@@ -77,7 +96,7 @@ const ServicesSection = ({ id }) => {
     }
   };
 
-  // Icons stagger but starting from Parentage then wrap
+  // Icons stagger but starting from Marital Matters then wrap
   const iconVariant = {
     hidden: { opacity: 0, scale: 0 },
     visible: (i) => {
@@ -157,24 +176,64 @@ const ServicesSection = ({ id }) => {
             Aladheed AlRashidiya provides a wide array of governmental services tailored to meet your specific needs. Explore how we can assist you.
           </motion.p>
         </div>
-        <div className="w-full flex justify-end">
-          <div
-            className={`relative w-48 h-48 mt-8 hidden md:flex flex-col items-center animate-robot-float mr-12`}
-          >
-            <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 flex flex-col space-y-2 mb-6">
-              <span className="w-8 h-8 bg-primary rounded-full thought-dot-3"></span>
-              <span className="w-6 h-6 bg-primary rounded-full thought-dot-2"></span>
-              <span className="w-4 h-4 bg-primary rounded-full thought-dot-1"></span>
+        
+        {/* Mobile Robot */}
+        <div className="w-full flex justify-center md:hidden mt-6">
+          <div className="relative w-32 h-32 flex flex-col items-center animate-robot-float">
+            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 flex flex-col space-y-1 mb-6">
+              <span className="w-4 h-4 bg-primary rounded-full thought-dot-3"></span>
+              <span className="w-3 h-3 bg-primary rounded-full thought-dot-2"></span>
+              <span className="w-2 h-2 bg-primary rounded-full thought-dot-1"></span>
             </div>
-            <div className="absolute -top-36 left-1/2 transform -translate-x-1/2 animate-speech-bubble-pop">
-              <div className="bg-white text-primary px-8 py-4 rounded-full shadow-lg text-lg font-body border border-primary">
+            <div className="absolute -top-20 left-1/2 transform -translate-x-1/2 animate-speech-bubble-pop">
+              <div className="bg-white text-primary px-4 py-2 rounded-full shadow-lg text-sm font-body border border-primary">
                 Discover our services
               </div>
             </div>
             <img
               src="/images/robot-images/robot16.png"
               alt="Decorative Robot"
-              className="w-48 h-48"
+              className="w-32 h-32"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+        
+        {/* Desktop Robot - Repositioned below service wheel */}
+        <div className="w-full flex justify-end mt-8">
+          <div
+            className={`relative hidden md:flex flex-col items-center animate-robot-float ${
+              isTablet ? 'w-32 h-32 mr-8' : 'w-48 h-48 mr-16'
+            }`}
+          >
+            <div className={`absolute flex flex-col space-y-2 mb-6 ${
+              isTablet ? '-top-12 left-1/2 transform -translate-x-1/2' : '-top-20 left-1/2 transform -translate-x-1/2'
+            }`}>
+              <span className={`bg-primary rounded-full thought-dot-3 ${
+                isTablet ? 'w-6 h-6' : 'w-8 h-8'
+              }`}></span>
+              <span className={`bg-primary rounded-full thought-dot-2 ${
+                isTablet ? 'w-4 h-4' : 'w-6 h-6'
+              }`}></span>
+              <span className={`bg-primary rounded-full thought-dot-1 ${
+                isTablet ? 'w-3 h-3' : 'w-4 h-4'
+              }`}></span>
+            </div>
+            <div className={`absolute animate-speech-bubble-pop ${
+              isTablet ? '-top-24 left-1/2 transform -translate-x-1/2' : '-top-36 left-1/2 transform -translate-x-1/2'
+            }`}>
+              <div className={`bg-white text-primary rounded-full shadow-lg font-body border border-primary ${
+                isTablet ? 'px-6 py-3 text-sm' : 'px-8 py-4 text-lg'
+              }`}>
+                Discover our services
+              </div>
+            </div>
+            <img
+              src="/images/robot-images/robot16.png"
+              alt="Decorative Robot"
+              className={`object-contain ${
+                isTablet ? 'w-32 h-32' : 'w-48 h-48'
+              }`}
               aria-hidden="true"
             />
           </div>
@@ -186,24 +245,31 @@ const ServicesSection = ({ id }) => {
         ref={ref}
         initial="hidden"
         animate={controls}
-        className="relative flex justify-center items-center min-h-[350px] -mt-8"
+        className={`relative flex justify-center items-center ${
+          isMobile ? 'min-h-[300px] -mt-2' : isTablet ? 'min-h-[400px] -mt-4' : 'min-h-[500px] -mt-6'
+        }`}
       >
         {/* central blue circle */}
         <motion.div
-          className="absolute z-10 flex items-center justify-center w-56 h-56 bg-[#047FE1] text-white rounded-full shadow-lg cursor-pointer animate-robot-float"
+          className={`absolute z-10 flex items-center justify-center bg-[#047FE1] text-white rounded-full shadow-lg cursor-pointer animate-robot-float ${
+            isMobile ? 'w-32 h-32' : isTablet ? 'w-40 h-40' : 'w-64 h-64'
+          }`}
           variants={centralVariant}
         >
           <img
             src="/images/543c1ea9-4152-4f62-b395-6fe34c21c568.png"
             alt="RAALC Robot"
-            className="w-44 h-44"
+            className={`object-contain ${
+              isMobile ? 'w-28 h-28' : isTablet ? 'w-36 h-36' : 'w-52 h-52'
+            }`}
           />
         </motion.div>
 
         {/* service icons */}
         {servicesData.map((service, index) => {
           const angle = (360 / len) * index;
-          const radius = 200;
+          // Increased radius for larger wheel
+          const radius = isMobile ? 160 : isTablet ? 200 : 280;
           const x = Math.cos((angle * Math.PI) / 180) * radius;
           const y = Math.sin((angle * Math.PI) / 180) * radius;
 
@@ -211,22 +277,37 @@ const ServicesSection = ({ id }) => {
             <motion.div
               key={index}
               className="absolute flex flex-col items-center cursor-pointer z-20"
-              style={{ x, y, width: 80, height: 110 }}
+              style={{ 
+                x, 
+                y, 
+                width: isMobile ? 70 : isTablet ? 80 : 100, 
+                height: isMobile ? 100 : isTablet ? 110 : 130
+              }}
               variants={iconVariant}
               custom={index}
               onClick={() => openPopup(service)}
             >
               <motion.div
-                className="bg-[#047FE1] text-white shadow-lg flex items-center justify-center rounded-full w-16 h-16 p-2"
+                className={`bg-[#047FE1] text-white shadow-lg flex items-center justify-center rounded-full ${
+                  isMobile ? 'w-14 h-14 p-1.5' : isTablet ? 'w-16 h-16 p-2' : 'w-20 h-20 p-2.5'
+                }`}
                 whileHover={{ scale: 1.2 }}
               >
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="w-8 h-8 object-contain"
+                  className={`object-contain ${
+                    isMobile ? 'w-7 h-7' : isTablet ? 'w-8 h-8' : 'w-10 h-10'
+                  }`}
                 />
               </motion.div>
-              <div className="text-xs font-medium text-primary text-center mt-2 whitespace-pre-line">
+              <div 
+                className={`font-medium text-primary text-center whitespace-pre-line ${
+                  isMobile ? 'text-xs mt-2 max-w-[70px]' : 
+                  isTablet ? 'text-sm mt-2 max-w-[80px]' : 
+                  'text-sm mt-3 max-w-[100px]'
+                }`}
+              >
                 {service.title}
               </div>
             </motion.div>

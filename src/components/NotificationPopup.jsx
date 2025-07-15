@@ -20,7 +20,7 @@ const notificationText = {
   ar: {
     close_aria_label: "إغلاق الإشعار",
     title: "احصل على الخدمة عبر الإنترنت",
-    subtitle: "أفضل طريقة لتجربة الخدمات الحكومية!",
+    subtitle: "!أفضل طريقة لتجربة الخدمات الحكومية",
     button_text: "احصل على توكن عبر الإنترنت",
     enquiry_label: "للاستفسار:",
     enquiry_number: "+971 4 342 5006",
